@@ -635,8 +635,10 @@ def my_git_update():
     print("")
     return '', 200
 
-
-
+# 14/02/2024
+@app.route("/papaModif01")
+def mypapaModif01():
+    return render_template('papaModif01.html') 
 
 @app.errorhandler(404)
 def page_not_found(e):
