@@ -640,7 +640,7 @@ def my_git_update():
     # requests.post('https://www.pythonanywhere.com/user/misspandinou/webapps/misspandinou.eu.pythonanywhere.com/reload/')
 
     
-    requests.post('https://www.pythonanywhere.com/user/lestortues67/webapps/lestortues67.eu.pythonanywhere.com/reload/')
+    # requests.post('https://www.pythonanywhere.com/user/lestortues67/webapps/lestortues67.eu.pythonanywhere.com/reload/')
 
     return '', 200
 
