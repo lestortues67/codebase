@@ -6,7 +6,7 @@ Fichier : app.py
 Description : app "codebase" une base de données qui contient TOUTE notre base des connaissances
 de code informatique. 
 """
-
+import git
 import datetime
 import string
 from flask import Flask, request, render_template, session, redirect, url_for, flash, jsonify
