@@ -615,6 +615,7 @@ def my_git_update():
 
 
     repo = Repo('./codebase')
+    print("repo : repo")
     print("repo : ",repo)
 
     print('repo working DIR : ',repo.working_dir)
