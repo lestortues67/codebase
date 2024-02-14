@@ -6,7 +6,6 @@ Fichier : app.py
 Description : app "codebase" une base de données qui contient TOUTE notre base des connaissances
 de code informatique. 
 """
-import git
 import datetime
 import string
 from flask import Flask, request, render_template, session, redirect, url_for, flash, jsonify
@@ -25,6 +24,7 @@ import uuid
 
 import pytz
 
+from git import Repo
 
 from packages.mysql import * 
 # from packages.forms import * 
@@ -611,6 +611,9 @@ def my_git_update():
 
     # Existing local git Repo with 'git.Repo(path_to_dir)'
     # repo = git.Repo('./')
+    print("git.Repo('./codebase') : ",git.Repo('./codebase'))
+
+
     repo = git.Repo('./codebase')
     print("repo : ",repo)
 
