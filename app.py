@@ -1,5 +1,5 @@
 """
-Date : 14/02/2024 à 13h30 public
+Date : 14/02/2024 à 13h30 public repo change
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py
@@ -610,7 +610,7 @@ def my_git_update():
     # repo = git.Repo('./gittest')
 
     # Existing local git Repo with 'git.Repo(path_to_dir)'
-    repo = git.Repo('./')
+    # repo = git.Repo('./')
     # repo = git.Repo('./codebase')
     print("repo : ",repo)
 
