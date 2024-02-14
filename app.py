@@ -1,5 +1,5 @@
 """
-Date : 14/02/2024 à 11h35
+Date : 14/02/2024 à 11h35 
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py
@@ -597,6 +597,40 @@ def mysousdossierDateDelete(p_id):
     db.session.commit()
 
     return ('delete date modified') 
+
+
+
+
+# 05/02/2024
+# Sur github on utilise le repo "codebase" : 
+# git@github.com:lestortues67/codebase.git
+@app.route('/git_update', methods=['POST'])
+def my_git_update():
+    print("une requete POST arrive ici ...")
+    # repo = git.Repo('./gittest')
+
+    # Existing local git Repo with 'git.Repo(path_to_dir)'
+    repo = git.Repo('./')
+    print("repo : ",repo)
+
+    print('repo working DIR : ',repo.working_dir)
+
+
+    origin = repo.remotes.origin # = <git.Remote "origin">
+    # >>> type(origin) 
+    # >>> <class 'git.remote.Remote'>  
+
+    print("origin : ",origin)
+    print("Je suis une nouvelle phrase N°3 à 12h19")
+    print("PUSH depuis PC Local à 15h00 **********************************************")
+    
+
+    # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+    repo.create_head('master',origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
+    
+    origin.pull()
+    print("'origin.pull()' a été fait ...")
+    return '', 200
 
 
 
