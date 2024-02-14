@@ -6,6 +6,7 @@ Fichier : app.py
 Description : app "codebase" une base de données qui contient TOUTE notre base des connaissances
 de code informatique. 
 """
+import requests
 import datetime
 import string
 from flask import Flask, request, render_template, session, redirect, url_for, flash, jsonify
@@ -633,6 +634,14 @@ def my_git_update():
     print("'origin.pull()' a été fait ...")
     print("+++++++++++++++++++++++++++++++++++++")
     print("")
+
+    # Je reload le code du DD vers la RAM
+    # import requests
+    # requests.post('https://www.pythonanywhere.com/user/misspandinou/webapps/misspandinou.eu.pythonanywhere.com/reload/')
+
+    
+    requests.post('https://www.pythonanywhere.com/user/lestortues67/webapps/lestortues67.eu.pythonanywhere.com/reload/')
+
     return '', 200
 
 # 14/02/2024
