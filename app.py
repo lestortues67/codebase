@@ -1,5 +1,5 @@
 """
-Date : 14/02/2024 à 14h05
+Date : 14/02/2024 à 15h40
 Auteur : Christian Doriath
 Dossier : /Python39/MesDEv/Flask/Flask_codebase2023
 Fichier : app.py
@@ -648,6 +648,31 @@ def my_git_update():
 @app.route("/papaModif01")
 def mypapaModif01():
     return render_template('papaModif01.html') 
+
+
+# 14/02/2024
+@app.route("/recharge")
+def myrecharge():
+    # Remplacez 'username' par votre nom d'utilisateur PythonAnywhere et 'your-webapp' par le nom de votre application Flask
+    username = 'lestortues67'
+    webapp_name = 'app'
+
+    # URL pour recharger l'application Flask sur PythonAnywhere
+    reload_url = f'https://www.pythonanywhere.com/api/v0/user/{username}/webapps/{webapp_name}/reload/'
+
+    # Utilisez votre nom d'utilisateur et votre token d'API pour l'authentification
+    api_token = 'your_api_token'
+    headers = {'Authorization': f'Token {api_token}'}
+
+    # Envoi de la requête POST pour recharger l'application
+    response = requests.post(reload_url, headers=headers)
+
+    if response.status_code == 200:
+        print("Application rechargée avec succès !")
+    else:
+        print("Erreur lors du rechargement de l'application :", response.status_code)
+
+    return '',200
 
 @app.errorhandler(404)
 def page_not_found(e):
