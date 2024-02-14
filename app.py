@@ -615,26 +615,24 @@ def my_git_update():
 
 
     repo = Repo('./codebase')
-    print("repo : repo")
+
     print("repo : ",repo)
 
     print('repo working DIR : ',repo.working_dir)
-
 
     origin = repo.remotes.origin # = <git.Remote "origin">
     # >>> type(origin) 
     # >>> <class 'git.remote.Remote'>  
 
     print("origin : ",origin)
-    print("Je suis une nouvelle phrase N°3 à 12h19")
-    print("PUSH depuis PC Local à 15h00 **********************************************")
-    
 
-    # repo.create_head('main',origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+
     repo.create_head('master',origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
     
     origin.pull()
     print("'origin.pull()' a été fait ...")
+    print("+++++++++++++++++++++++++++++++++++++")
+    print("")
     return '', 200
 
 
