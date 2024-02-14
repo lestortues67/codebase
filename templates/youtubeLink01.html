@@ -1,0 +1,97 @@
+{% extends "MyBase.html" %}
+
+
+{% block content %}
+
+
+
+
+  <div class="container">
+      <button type="button" class="btn btn-outline-dark" id="addLink">+ Lien </button>
+    Création d'un lien spécial "youtube" : 
+    <p></p>
+    <p></p>
+  </div>
+
+  <div class="container" id="divACopier">
+    <span>
+      <a href="https://www." class="btn p-0 m-0" tabindex="0" role="button" id="lienImg">
+      <img src="https://www.youtube.com/s/desktop/f8ad2d78/img/favicon_32x32.png" style="height:32px; margin-left:0px;" class="p-0 m-0" />
+    </span>
+    <span class="badge ">
+      <a href="https://www." tabindex="0" role="button"  class="text-decoration-none text-dark" 
+      id="lienTitre">texte</a>
+    </span>
+  </div>
+
+
+<div class="container">
+    <span>
+      <a href="https://www.youtube.com/watch?v=170Mx8KuURM" class="btn p-0 m-0" tabindex="0" role="button">
+      <img src="https://www.youtube.com/s/desktop/f8ad2d78/img/favicon_32x32.png" style="height:32px; margin-left:0px;" class="p-0 m-0" />
+    </span>
+    <span class="badge ">
+      <a href="https://www.youtube.com/watch?v=170Mx8KuURM" tabindex="0" role="button"  class="text-decoration-none text-dark">Youtube Api Tutorial - How to extract the title and tags from a video</a>
+    </span>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <p></p>
+  </div>
+
+  
+
+
+  <div class="container">
+    <!-- texte -->
+     <!-- <h1>hello</h1> -->
+    <textarea class="form-control" placeholder="Coller/paste ici pour analyser la console F12" 
+    id="floatingTextarea" name="lienYoutube">
+     
+ 
+    </textarea>
+
+    <label for="floatingTextarea">Commentaires</label>
+  </div>
+
+<div id="copy-text-btn">
+  
+</div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+  <script type="text/javascript" src="static/youtubelink01.js"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

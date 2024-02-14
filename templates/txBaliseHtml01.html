@@ -1,0 +1,93 @@
+{% extends "MyBase.html" %}
+
+
+{% block content %}
+<div class=" container alert alert-warning" role="alert">
+  Voici le code JINJA utilisé ici : <br>
+  <ul>
+  	<li>
+  		{% raw %}
+    	{% include &#039;squeletteAbba.html&#039; %}
+  		{% endraw %}
+  	</li>
+
+  	<li>
+  		{% raw %}
+    	{{elements|safe}}
+  		{% endraw %}
+  	</li>
+
+  	<li>
+  		{% raw %}
+    	{{btnBlue|safe}}
+  		{% endraw %}
+  	</li>
+
+  	<li>
+  		{% raw %}
+    	{{btnRed|safe}}
+  		{% endraw %}
+  	</li>
+
+  </ul>
+  
+</div>
+
+
+
+
+
+
+
+<div class="container" >
+	{% include 'squeletteAbba.html' %} 
+	{{elements|safe}}
+	{{btnBlue|safe}}
+	{{btnRed|safe}}
+
+</div>      
+{% endblock content %}
+
+
+{% block scripts %}
+{{super()}}
+<script type="text/javascript">
+
+	var cb.math.sum = function (p_a,p_b){
+		return (Array.reduce(p_args,
+			function(sum, value){
+				return sum+value;
+			},0));
+	};
+
+
+	var stopthere = 100;
+
+	
+
+	function append2abbaLeft() {
+		// "abbaLeft" 
+		var abbaLeft = document.getElementById("abbaLeft");
+		abbaLeft.innerText = "abbaLeft";
+	}
+	function append2abbaCenter() {
+		// "abbaCenter" 
+		var abbaCenter = document.getElementById("abbaCenter");
+		abbaCenter.innerText = "abbaCenter";
+		
+	}
+	function append2abbaRight() {
+		// "abbaRight"
+		var abbaRight = document.getElementById("abbaRight");
+		abbaRight.innerText = "abbaRight";
+		
+	}
+
+
+
+
+
+
+	
+</script>
+{% endblock scripts %}

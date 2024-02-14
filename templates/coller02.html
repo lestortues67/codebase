@@ -1,0 +1,57 @@
+{% extends "MyBase.html" %}
+
+
+{% block content %}
+<div class=" container alert alert-warning" role="alert">
+  <b>Coller depuis le presse papier une image par "CTRL+V"</b> <br>
+  <canvas id="my_canvas"></canvas>
+  
+</div>
+
+<div class=" container" id="imageDiv">
+  
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+{{ super() }}
+
+
+
+
+<script type="text/javascript">
+
+  function paste_createImage(p_source) {
+    var pastedImage = new Image();
+    var d = document.getElementById("imageDiv").appendChild(pastedImage)
+    pastedImage.src = p_source;
+  };
+
+  function eventManager(p_event){
+    var a = 100;
+    p_event.preventDefault();
+
+    //on colle
+    if (p_event.type == 'paste'){
+      if (p_event.clipboardData) {
+        var items = p_event.clipboardData.items;
+        if (!items) return;
+
+        //access data directly
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].type.indexOf("image") !== -1) {
+            //image
+            var blob = items[i].getAsFile();
+            var URLObj = window.URL || window.webkitURL;
+            var source = URLObj.createObjectURL(blob);
+            paste_createImage(source);
+          }
+        }
+      }// if
+    }// if
+  }// eventManager
+
+  document.addEventListener('paste', eventManager, false);
+</script>
+{% endblock scripts %}

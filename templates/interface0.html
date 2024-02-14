@@ -1,0 +1,146 @@
+{% extends "MyBase0.html" %}
+
+
+
+{% block content %}
+<div class="d-flex flex-row justify-content-center ">
+
+	<div class="badge badge-danger" >Appuyer sur la touche xyz pour retourner au menu</div>
+</div>
+<div class="d-flex flex-row m-2 p-2 border bg-dark border-dark rounded">
+	<div class="d-flex flex-row h-25 justify-content-center" >
+		<div class="d-flex flex-row m-2 p-2 border border-primary rounded bg-light">
+			<button class="btn btn-dark m-2 p-2" id="razFiltre" >Ràz</button>
+			<div class="d-flex flex-column">
+				<div>
+					<label class="text-center h6 small">Saisir une  date</label>
+				</div>
+				<div>
+					<input class="h6 small filtering" size="10" type="date" id="dateTextFiltre" name="dateTextFiltre" >
+				</div>
+			</div>
+			<select class="h6 small filtering" name="langageFiltre" id="langageFiltre">  <!-- class="font-italic" -->
+				<option value="">Choisir un langage</option>
+			    <option value="html">HTML</option>
+			    <option value="js">JS</option>
+			    <option value="bootstrap">Bootstrap</option>
+			    <option value="jinja">Jinja</option>
+			    <option value="c">C</option>
+			</select>
+
+			<select class="h6 small filtering" name="categorie" id="categorieFiltre">
+			    <option value="">Choisir une catégorie</option>
+			    <option value="table">Table</option>
+			    <option value="modal">Modal</option>
+			    <option value="form">Form</option>
+			</select>
+
+			<select class="h6 small filtering" name="souscategorie" id="souscategorieFiltre">
+				<option value="">Choisir une sous catégorie</option>
+			    <option value="html">HTML</option>
+			    <option value="js">JS</option>
+			    <option value="bootstrap">Bootstrap</option>
+			    <option value="jinja">Jinja</option>
+			    <option value="c">C</option>
+			</select>
+
+			<select class="h6 small filtering" name="auteur" id="auteurFiltre">
+			    <option value="">Choisir un auteur</option>
+			    <option value="claire">Claire</option>
+			    <option value="christian">Christian</option>
+			</select>
+		</div>
+		<div class="d-flex flex-row m-2 p-2 border border-secondary rounded bg-light">
+			<div class="d-flex flex-column">
+				<div>
+					<label class="text-center h6 small">Saisir un mot clé</label>
+				</div>
+				<div>
+					<input class="h6 small filtreI" size="10" type="text" name="" id="motcleFiltre" tabindex=2 >
+				</div>
+			</div>
+			<button class="btn btn-primary m-2 p-2" id="btnRechercher" >Rechercher</button>
+			<button class="btn btn-primary m-2 p-2 border-danger" id="razMotCle" >Ràz</button>
+		</div>
+
+
+
+	</div>
+
+	<div class="d-inline p-2 bg-dark text-white"> 
+		<h2>Filtrer</h2>
+	</div>
+</div>
+
+
+
+<div class="d-flex flex-row m-2 p-2 border border-success rounded bg-success"> 
+	<div class="d-flex flex-row h-25 justify-content-center" >
+		<div class="d-flex flex-row m-2 p-2 border border-primary rounded bg-light ">
+			<button class="btn btn-success razTri m-2 p-2" >Ràz</button>
+			<select class="h6 small triS" name="langage" id="langage">  <!-- class="font-italic" -->
+				<option value="">Trier par date</option>
+			    <option value="dateascendant">date ascendant</option>
+			    <option value="datedescendant">date descendant</option>
+			</select>
+			<select class="h6 small triS" name="langage" id="langage">  <!-- class="font-italic" -->
+				<option value="">Trier par langage</option>
+			    <option value="langageascendant">langage ascendant</option>
+			    <option value="langagedescendant">langage descendant</option>
+			</select>
+			<select class="h6 small triS" name="categorie" id="categorie">  <!-- class="font-italic" -->
+				<option value="">Trier par catégorie</option>
+			    <option value="categorieascendant">catégorie ascendant</option>
+			    <option value="categoriedescendant">catégorie descendant</option>
+			</select> 
+			<select class="h6 small triS" name="souscategorie" id="souscategorie">  <!-- class="font-italic" -->
+				<option value="">Trier par sous-catégorie</option>
+			    <option value="souscategorieascendant">sous-catégorie ascendant</option>
+			    <option value="souscategoriedescendant">sous-catégorie descendant</option>
+			</select>
+			<select class="h6 small triS" name="auteur" id="auteur">  <!-- class="font-italic" -->
+				<option value="">Trier par auteur</option>
+			    <option value="auteurascendant">auteur ascendant</option>
+			    <option value="auteurdescendant">auteur descendant</option>
+			</select>
+			<select class="h6 small triS" name="motcleT" id="motcleT">  <!-- class="font-italic" -->
+				<option value="">Trier par mot clé</option>
+			    <option value="motcleascendant">mot clé ascendant</option>
+			    <option value="motcledescendant">mot clé descendant</option>
+			</select>
+
+			<button class="btn btn-success razTri m-2 p-2" >Ràz</button>
+			</div>
+	</div>
+
+	<div class="d-inline p-2 bg-success text-white">
+		<h2>Trier</h2>
+	</div>
+</div>
+
+
+
+<!-- <div class="d-flex flex-row justify-content-between">
+	<div class="align-self-center"><img src="   {{url_for("static", filename="images/myJsLibphoto1.jpg")}}  " align="center"> </div>	
+</div> -->
+
+
+
+{% endblock content %}
+
+{% block scripts %}
+<!-- Ce block scripts est conçu en suivant l'exemple donné par pretty printed dans sa vidéo sur ajax.
+Les scripts sont organisés ainsi :  -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--     <script src="static/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="static/bootstrap/popper.min.js"></script>
+    <script src="static/bootstrap/bootstrap.min.js"></script>
+    <script src="static/app.js"></script> -->
+<!-- Le fichier js est en dernier !  -->
+    
+{{super()}}
+
+<script type="text/javascript" src="static/interface0.js"></script>
+
+{% endblock %}

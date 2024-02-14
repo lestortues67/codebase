@@ -1,0 +1,58 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+    <head>
+    {%- block head %}
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+        <title>{% block title %}{{title|default}}{% endblock title %}</title>
+
+        {%- block metas %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {%- endblock metas %}
+
+        {%- block styles %}
+            <!-- Bootstrap CSS -->
+            <!-- <link rel="stylesheet" href="static/bootstrap.min.css"> -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {%- endblock styles %}
+    {%- endblock head %}
+    </head>
+
+    <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+        {% include 'TopOfNavBar.html' %} 
+        {% include 'NavigationBar.html' %}
+        
+        
+            {% block content -%}
+            <!-- Tout le contenu VARIABLE des pages sera placé ici par les pages qui étendent (extends) ce fiche comme base -->
+            {%- endblock content %}
+        {% include 'Footer.html' %}
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <!-- <script src="static/jquery-3.3.1.min.js"></script> -->
+            <!-- <script src="static/popper.min.js" ></script> -->
+            <!-- <script src="static/bootstrap.min.js"></script>   -->
+
+
+<!-- Pour JQuery je n'utilise PAS la version SLIM car toutes les fonctionnalités ne sont pas disponibles. 
+Donc, je choisis la version 'min'             -->
+            <script type="application/javascript" src="static/lib_table2023.js" ></script>
+            <script type="application/javascript" src="static/test2023.js" ></script>
+
+            <script
+              src="https://code.jquery.com/jquery-3.4.1.min.js"
+              integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        {%- endblock scripts %}
+    {%- endblock body %}
+    </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}

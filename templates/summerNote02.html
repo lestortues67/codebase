@@ -1,0 +1,42 @@
+{% extends "MyBase.html" %}
+
+
+
+{% block myHeadScript -%}
+{{ super() }}
+    <!-- include libraries(jQuery, bootstrap) -->
+    
+{% endblock myHeadScript %}
+
+
+{% block content %}
+<div class=" container alert alert-warning" role="alert">
+  <b>Montrer comment envoyer au serveur le contenu de PASTE (CTRL+V)</b> <br>
+  
+</div>
+
+<div style="height=10rem;" ></div>
+
+<div id="summernote"></div>
+
+{% endblock content %}
+
+{% block scripts %}
+{{ super() }}
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
+    
+<script type="text/javascript">
+      $('#summernote').summernote({
+        placeholder: 'Hello Bootstrap 5',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
+
+
+{% endblock scripts %}
+

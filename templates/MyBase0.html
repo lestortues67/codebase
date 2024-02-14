@@ -1,0 +1,114 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+    <head>
+    {%- block head %}
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+        <title>{% block title %}{{title|default}}{% endblock title %}</title>
+
+        {%- block metas %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {%- endblock metas %}
+
+        {%- block styles %}
+
+            <script src='static/codemirror/lib/codemirror.js'></script>            
+            <script src='static/codemirror/mode/xml/xml.js'></script> <!-- pour rendre du code html -->
+            <script src='static/codemirror/mode/javascript/javascript.js'></script> <!-- pour rendre du code JS -->
+            <script src='static/codemirror/mode/css/css.js'></script> <!-- pour rendre ... -->
+            <script src='static/codemirror/mode/python/python.js'></script> <!-- pour rendre du code python -->
+            <script src='static/codemirror/mode/htmlmixed/htmlmixed.js'></script> <!-- pour rendre ...  -->
+
+            <!-- <script src='http://codemirror.net/lib/codemirror.js'></script> -->
+            <!-- <script src='http://codemirror.net/mode/xml/xml.js'></script> -->
+            <!-- <script src='http://codemirror.net/mode/javascript/javascript.js'></script> -->
+            <!-- <script src='http://codemirror.net/mode/css/css.js'></script> -->
+            <!-- <script src='http://codemirror.net/mode/python/python.js'></script> -->
+            <!-- <script src='http://codemirror.net/mode/htmlmixed/htmlmixed.js'></script> -->
+
+            <script src='static/codemirror/addon/edit/closetag.js'></script>
+            <script src='static/codemirror/addon/search/search.js'></script>
+            <script src='static/codemirror/addon/search/searchcursor.js'></script>
+            <script src='static/codemirror/addon/selection/mark-selection.js'></script>
+
+            <!-- Test a theme for the editor :  -->
+            <link rel='stylesheet' href='static/codemirror/theme/dracula.css'>
+            <!-- Bootstrap CSS -->
+            
+            <link rel='stylesheet' href='http://codemirror.net/lib/codemirror.css'>
+            <!-- <link rel='stylesheet' href='http://codemirror.net/doc/docs.css'> -->
+            <!-- docs.css est INCOMPATIBLE avec Bootstrap -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            <!-- <link rel="stylesheet" href="static/bootstrap.min.css"> -->
+            <style type='text/css'>
+                .redText {
+                    font-family: Trebuchet MS;
+                    font-size: 14px;
+                    font-color: red;
+                }
+                .CodeMirror {
+                    float: left;
+                    width: 50%;
+                    border: 2px solid red;
+                    font-family: Trebuchet MS;
+                    font-size: 14px;
+                }
+                iframe {
+                    width: 49%;
+                    float: left;
+                    height: 300px;
+                    border: 3px solid green;
+                    border-left: 0px;
+                }
+            </style>
+
+
+
+            
+        {%- endblock styles %}
+
+            {% block myHeadScript -%}
+            <!-- Un script à placer dans la partie 'head' de la page html sera placé ici par les pages qui étendent (extends) ce fichier-->
+            {%- endblock myHeadScript %}
+
+
+    {%- endblock head %}
+    </head>
+
+    <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+        {% include 'NavigationBar2.html' %}
+        
+        
+            {% block content -%}
+            <!-- Tout le contenu VARIABLE des pages sera placé ici par les pages qui étendent (extends) ce fiche comme base -->
+            {%- endblock content %}
+        {% include 'Footer.html' %}
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <!-- <script src="static/jquery-3.3.1.min.js"></script> -->
+            <!-- <script src="static/popper.min.js" ></script> -->
+            <!-- <script src="static/bootstrap.min.js"></script>   -->
+
+
+<!-- Pour JQuery je n'utilise PAS la version SLIM car toutes les fonctionnalités ne sont pas disponibles. 
+Donc, je choisis la version 'min'             -->
+            <script
+              src="https://code.jquery.com/jquery-3.4.1.min.js"
+              integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script>
+              <!-- <script src="static/jquery-3.4.1.min.js"></script> -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <!-- <script src="static/popper.min.js"></script> -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <!-- <script src="static/bootstrap.min.js"></script> -->
+        {%- endblock scripts %}
+    {%- endblock body %}
+    </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}

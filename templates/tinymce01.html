@@ -1,0 +1,84 @@
+{% extends "MyBase.html" %}
+
+
+{% block content %}
+<div class="container">
+	<div class="row" >
+		<button type="button" class="btn btn-danger" aria-expanded="false">
+    Tiny MCE avec Bootstrap V5 ! 
+  	</button>
+	</div>
+	<div class="btn-group">
+  	<button type="button" class="btn btn-success dropdown-toggle m-1" data-bs-toggle="dropdown" aria-expanded="false">
+    Langage
+  	</button>
+		  <ul class="dropdown-menu">
+		    <li><a class="dropdown-item" href="#">Action</a></li>
+		    <li><a class="dropdown-item" href="#">Another action</a></li>
+		    <li><a class="dropdown-item" href="#">Something else here</a></li>
+		    <li><hr class="dropdown-divider"></li>
+		    <li><a class="dropdown-item" href="#">Separated link</a></li>
+		  </ul>
+
+		<button type="button" class="btn btn-success dropdown-toggle m-1" data-bs-toggle="dropdown" aria-expanded="false">
+    Dossier
+  	</button>
+		  <ul class="dropdown-menu">
+		    <li><a class="dropdown-item" href="#">Action</a></li>
+		    <li><a class="dropdown-item" href="#">Another action</a></li>
+		    <li><a class="dropdown-item" href="#">Something else here</a></li>
+		    <li><hr class="dropdown-divider"></li>
+		    <li><a class="dropdown-item" href="#">Separated link</a></li>
+		  </ul>
+		<button type="button" class="btn btn-success dropdown-toggle m-1" data-bs-toggle="dropdown" aria-expanded="false">
+    Sous-Dossier
+  	</button>
+		  <ul class="dropdown-menu">
+		    <li><a class="dropdown-item" href="#">Action</a></li>
+		    <li><a class="dropdown-item" href="#">Another action</a></li>
+		    <li><a class="dropdown-item" href="#">Something else here</a></li>
+		    <li><hr class="dropdown-divider"></li>
+		    <li><a class="dropdown-item" href="#">Separated link</a></li>
+		  </ul>
+		<input type="text" placeholder="Saisir ta question ici">
+	</div>
+</div>
+
+
+
+<div id="conteneur">
+	<div id="contenu">
+	<!--
+	Implémentation
+	-->
+	<div class="container">
+		<textarea id="description" name="description"></textarea><br />
+		<input type="button" value="tester" onclick="ajouter()" />
+	</div>		
+	</div>
+</div>
+
+ 
+
+
+{% endblock content %}
+
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" language="javascript">
+	tinymce.init({selector:"textarea", width:1300,height:370,menubar:false,statusbar:false
+	}
+		);
+
+	function ajouter()
+	{
+		tinymce.triggerSave(true,true);
+		alert(document.getElementById("description").value)
+	}
+	
+
+</script>
+
+
+
+{% endblock scripts %}

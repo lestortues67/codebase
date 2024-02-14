@@ -1,0 +1,5 @@
+Les 4 fichiers suivants sont à utiliser dans les projets bootstrap : 
+bootstrap.min.css
+bootstrap.min.js
+jquery-3.3.1.min.js
+popper.min.js

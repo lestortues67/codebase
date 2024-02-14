@@ -1,0 +1,54 @@
+{% extends "MyBase.html" %}
+
+
+{% block content %}
+<div class="container">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Langage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in datas %}
+    <tr>
+      <td>{{ l['id'] }}</td>
+      <td>{{ l['createDateLongue'] }}</td>
+      <td>{{ l['langage'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+{{ super() }}
+
+
+{% endblock scripts %}
+
+
+{% block poubelle %}
+
+{'id': 1, 
+'createDate': datetime.datetime(2023, 4, 27, 18, 20, 3), 
+'createDateLongue': 'jeudi, 27 avril 2023 18:20:02', 'createEpoch': 1682612402, 
+'retrieveDate': datetime.datetime(2023, 4, 27, 18, 37, 26), 
+'retrieveDateLongue': 'jeudi, 27 avril 2023 18:37:25', 
+'retrieveEpoch': 1682613445, 
+'updateDate': datetime.datetime(2023, 4, 27, 18, 36, 39), 
+'updateDateLongue': 'jeudi, 27 avril 2023 18:36:38', 
+'updateEpoch': 1682613398, 
+'deleteDate': datetime.datetime(2023, 4, 27, 18, 39, 21), 
+'deleteDateLongue': 'jeudi, 27 avril 2023 18:39:20', 
+'deleteEpoch': 1682613560, 
+'langage': 'XOTJFXGSKV', 
+'supprime': 0, 
+'uuid': '38d739a3-1d97-4085-b4da-ee8f9e847089'}
+
+{% endblock poubelle %}
+

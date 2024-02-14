@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class=" container alert alert-warning" role="alert">
+      <b>Coller depuis le presse papier une image par "CTRL+V"</b> <br>  
+    </div>
+
+    <div class=" container" id="imageDiv">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      function paste_createImage(p_source) {
+        var pastedImage = new Image();
+        var d = document.getElementById("imageDiv").appendChild(pastedImage)
+        pastedImage.src = p_source;
+      };
+
+      function eventManager(p_event){
+        var a = 100;
+        p_event.preventDefault();
+
+        //on colle
+        if (p_event.type == 'paste'){
+          if (p_event.clipboardData) {
+            var items = p_event.clipboardData.items;
+            if (!items) return;
+
+            //access data directly
+            for (var i = 0; i < items.length; i++) {
+              if (items[i].type.indexOf("image") !== -1) {
+                //image
+                var blob = items[i].getAsFile();
+                var URLObj = window.URL || window.webkitURL;
+                var source = URLObj.createObjectURL(blob);
+                paste_createImage(source);
+              }
+            }
+          }// if
+        }// if
+      }// eventManager
+
+      document.addEventListener('paste', eventManager, false);
+    </script>
+
+
+  </body>
+</html>
