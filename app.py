@@ -611,10 +611,10 @@ def my_git_update():
 
     # Existing local git Repo with 'git.Repo(path_to_dir)'
     # repo = git.Repo('./')
-    print("git.Repo('./codebase') : ",git.Repo('./codebase'))
+    print("Repo('./codebase') : ",Repo('./codebase'))
 
 
-    repo = git.Repo('./codebase')
+    repo = Repo('./codebase')
     print("repo : ",repo)
 
     print('repo working DIR : ',repo.working_dir)
